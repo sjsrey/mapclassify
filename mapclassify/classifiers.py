@@ -2381,3 +2381,11 @@ class K_classifiers(object):
                 pct0 = pct1
         self.results = results
         self.best = best[1]
+
+dispatch = {}
+dispatch['Box_Plot'] = Box_Plot
+dispatch['Equal_Interval'] = Equal_Interval
+
+for classifier in CLASSIFIERS:
+    dispatch[classifier] = eval(classifier)
+
