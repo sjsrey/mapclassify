@@ -59,7 +59,7 @@ def classify(y, method="quantiles", **kwargs):
     """
 
     ml = method.lower()
-    if ml in dispatch:
+    try:
         return dispatch[ml](y, **kwargs)
-    else:
+    except KeyError:
         print(f'{method} not a known classifier.')
