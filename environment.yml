@@ -7,8 +7,9 @@ dependencies:
   - python=3.6
   - pip
   - geopandas
+  - libpysal
   - ipywidgets
   - jupyter
   - jupyterlab
   - nbconvert
-  - brewer2mpl
+  - palettable
