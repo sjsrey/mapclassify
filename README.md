@@ -9,8 +9,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pysal/mapclassify/master)
 
 `mapclassify` implements a family of classification schemes for choropleth maps.
-Its focus is on the determination of the number of classes, and the assignment
-of observations to those classes. It is intended for use with upstream mapping
+Its focus is on the determination the number of classes and the definition of class intervals. It is intended for use with upstream mapping
 and geovisualization packages (see
 [geopandas](https://geopandas.org/mapping.html) and
 [geoplot](https://residentmario.github.io/geoplot/user_guide/Customizing_Plots.html))
