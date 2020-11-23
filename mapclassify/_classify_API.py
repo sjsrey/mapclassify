@@ -1,24 +1,39 @@
-import mapclassify
+from .classifiers import (
+    BoxPlot,
+    EqualInterval,
+    FisherJenks,
+    FisherJenksSampled,
+    HeadTailBreaks,
+    JenksCaspall,
+    JenksCaspallForced,
+    JenksCaspallSampled,
+    MaxP,
+    MaximumBreaks,
+    NaturalBreaks,
+    Quantiles,
+    Percentiles,
+    StdMean,
+    UserDefined
+)
 
 __author__ = ("Stefanie Lumnitz <stefanie.lumitz@gmail.com>")
 
-
 _classifiers = {
-    'boxplot': mapclassify.BoxPlot,
-    'equalinterval': mapclassify.EqualInterval,
-    'fisherjenks': mapclassify.FisherJenks,
-    'fisherjenkssampled': mapclassify.FisherJenksSampled,
-    'headtailbreaks': mapclassify.HeadTailBreaks,
-    'jenkscaspall': mapclassify.JenksCaspall,
-    'jenkscaspallforced': mapclassify.JenksCaspallForced,
-    'jenkscaspallsampled': mapclassify.JenksCaspallSampled,
-    'maxp': mapclassify.MaxP,
-    'maximumbreaks': mapclassify.MaximumBreaks,
-    'naturalbreaks': mapclassify.NaturalBreaks,
-    'quantiles': mapclassify.Quantiles,
-    'percentiles': mapclassify.Percentiles,
-    'stdmean': mapclassify.StdMean,
-    'userdefined': mapclassify.UserDefined,
+    'boxplot': BoxPlot,
+    'equalinterval': EqualInterval,
+    'fisherjenks': FisherJenks,
+    'fisherjenkssampled': FisherJenksSampled,
+    'headtailbreaks': HeadTailBreaks,
+    'jenkscaspall': JenksCaspall,
+    'jenkscaspallforced': JenksCaspallForced,
+    'jenkscaspallsampled': JenksCaspallSampled,
+    'maxp': MaxP,
+    'maximumbreaks': MaximumBreaks,
+    'naturalbreaks': NaturalBreaks,
+    'quantiles': Quantiles,
+    'percentiles': Percentiles,
+    'stdmean': StdMean,
+    'userdefined': UserDefined,
     }
 
 
@@ -132,9 +147,9 @@ def classify(y, scheme, k=5, pct=[1,10,50,90,99,100],
         classifier = _classifiers[scheme](y, k, initial)
     elif scheme == 'userdefined':
         classifier = _classifiers[scheme](y, bins)
-    elif scheme in ['equalinterval', 'fisherjenks',
-                    'jenkscaspall','jenkscaspallforced',
-                    'quantiles']
+    elif scheme in ['equalinterval', 'fisherjenks', 
+                    'jenkscaspall','jenkscaspallforced', 
+                    'quantiles']:
         classifier = _classifiers[scheme](y, k)
         
     return classifier
